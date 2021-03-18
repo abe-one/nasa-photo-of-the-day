@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL, API_KEY } from "../Constants";
 import "../Styling/App.css";
+import styled from "styled-components";
 import APODBox from "./APODBox";
 
 function App() {
@@ -13,10 +14,16 @@ function App() {
     random === 1 ? setRandom(2) : setRandom(1); //Is this janky or clever???????
   };
 
+  const PageContainer = styled.div`
+    background-color: ${(pr) => pr.theme.analogTint1};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `;
+
   useEffect(() => {
     axios
       .get(`${BASE_URL}?api_key=${API_KEY}${random ? "&count=1" : ""}`)
-      // .get(`${BASE_URL}?api_key=${API_KEY}`) // API with key
       .then((res) => {
         Array.isArray(res.data) ? setAPOD(res.data[0]) : setAPOD(res.data);
         console.log(res + "this is the original res");
@@ -28,9 +35,9 @@ function App() {
   }, [random]);
 
   return (
-    <div className="App">
+    <PageContainer className="App">
       {<APODBox aPOD={aPOD} getRandomAPOD={getRandomAPOD} />}
-    </div>
+    </PageContainer>
   );
 }
 

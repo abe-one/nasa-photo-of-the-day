@@ -3,17 +3,38 @@ import CycleButton from "./CycleButton";
 import styled from "styled-components";
 
 const StyledAPODBox = styled.div`
-  color: ${(pr) => pr.theme.mainColor};
-  background-color: ${(pr) => pr.theme.analogTint1};
+  color: ${(pr) => pr.theme.analogTint1};
+  background-color: ${(pr) => pr.theme.mainColor};
   min-height: 100vh;
+  width: 80%;
+  padding: 5vh 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 65%;
 
   button {
-    color: ${(pr) => pr.theme.analogTint2};
-    background-color: ${(pr) => pr.theme.mainColor};
-    border: 1px solid ${(pr) => pr.theme.mainColor};
-    border-radius: 5px;
+    color: ${(pr) => pr.theme.mainColor};
+    background-color: ${(pr) => pr.theme.analogTint2};
+    border: 1px solid ${(pr) => pr.theme.analogTint2};
+    border-radius: 8px;
     padding: 0.4rem 1.2rem;
+    margin-top: 1rem;
     font-size: 1.8rem;
+  }
+
+  h2,
+  h3,
+  h4 {
+    max-width: 80%;
+  }
+
+  .img-box {
+  }
+  .img-box > img {
+    border-radius: 10px;
+    max-height: 50vh;
+    transition: ;
   }
 `;
 
