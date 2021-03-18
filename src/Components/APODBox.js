@@ -1,19 +1,26 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import CycleButton from "./CycleButton";
+import styled from "styled-components";
 
-/*
-img click enlarge
-<prev button>
-<rand button>
-<nxt button>
+const StyledAPODBox = styled.div`
+  color: ${(pr) => pr.theme.mainColor};
+  background-color: ${(pr) => pr.theme.analogTint1};
+  min-height: 100vh;
 
-*/
+  button {
+    color: ${(pr) => pr.theme.analogTint2};
+    background-color: ${(pr) => pr.theme.mainColor};
+    border: 1px solid ${(pr) => pr.theme.mainColor};
+    border-radius: 5px;
+    padding: 0.4rem 1.2rem;
+    font-size: 1.8rem;
+  }
+`;
 
 export default function APODBox({ aPOD, getRandomAPOD }) {
   if (!aPOD) return <h3>Loading</h3>;
   return (
-    <div className="container APOD-box">
+    <StyledAPODBox className="container APOD-box">
       <div className="img-box">
         <img src={aPOD.url} alt={aPOD.title} />
       </div>
@@ -25,6 +32,6 @@ export default function APODBox({ aPOD, getRandomAPOD }) {
       {/* <CycleButton buttonText="This Yesterday" eventFunction={null} /> */}
       <CycleButton buttonText="Random Day" eventFunction={getRandomAPOD} />
       {/* <CycleButton buttonText="This Tomorrow" eventFunction={null} />  */}
-    </div>
+    </StyledAPODBox>
   );
 }

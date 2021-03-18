@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 
 export default function CycleButton({ buttonText, eventFunction }) {
   return <button onClick={eventFunction}>{buttonText}</button>;
