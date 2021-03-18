@@ -10,7 +10,7 @@ img click enlarge
 
 */
 
-export default function APODBox({ aPOD }) {
+export default function APODBox({ aPOD, getRandomAPOD }) {
   if (!aPOD) return <h3>Loading</h3>;
   return (
     <div className="container APOD-box">
@@ -22,9 +22,9 @@ export default function APODBox({ aPOD }) {
       )}
       <h2>{aPOD.title}</h2>
       <h4>{aPOD.explanation}</h4>
-      {/* <CycleButton buttonText="This Yesterday" eventFunction={null} />
-      <CycleButton buttonText="Random Day" eventFunction={null} />
-      <CycleButton buttonText="This Tomorrow" eventFunction={null} />  */}
+      {/* <CycleButton buttonText="This Yesterday" eventFunction={null} /> */}
+      <CycleButton buttonText="Random Day" eventFunction={getRandomAPOD} />
+      {/* <CycleButton buttonText="This Tomorrow" eventFunction={null} />  */}
     </div>
   );
 }

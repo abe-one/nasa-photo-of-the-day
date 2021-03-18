@@ -6,10 +6,10 @@ import APODBox from "./APODBox";
 
 function App() {
   const [aPOD, setAPOD] = useState([]);
-  const [random, setRandom] = useState(false);
+  const [random, setRandom] = useState(0);
 
   const getRandomAPOD = () => {
-    setRandom(true);
+    random === 1 ? setRandom(2) : setRandom(1); //Is this janky or clever???????
   };
 
   useEffect(() => {
@@ -29,8 +29,8 @@ function App() {
 
   return (
     <div className="App">
-      {<APODBox aPOD={aPOD} />}
-      <button onClick={getRandomAPOD}>Rando</button>
+      {<APODBox aPOD={aPOD} getRandomAPOD={getRandomAPOD} />}
+      {/* <button onClick={getRandomAPOD}>Rando</button> */}
     </div>
   );
 }
